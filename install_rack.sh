@@ -1,6 +1,9 @@
 # install required packages
 # sudo apt install -y git
 sudo apt install screen -y
+screen -S install_rack
+sudo apt install -y ffmpeg
+sudo apt install -y net-tools
 sudo apt install python3-pip -y
 pip install setuptools==58.2.0
 pip install RPi.GPIO
@@ -43,19 +46,27 @@ yes | sudo apt update
 yes |  sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install ros-humble-ros-base -y
+yes | sudo apt update -y
+yes | sudo apt upgrade -y
+yes | sudo apt install ros-humble-ros-base -y
 
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 
-echo "alias bld='cd ~/ros2_ws && colcon build --symlink-install && source ~/ros2_ws/install/setup" >> ~/.bashrc
-echo "alias upros='source ~/ros2_ws/install/setup.bash'"
+source /opt/ros/humble/setup.bash
+source ~/.bashrc
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+colcon build --symlink-install
+source ~/ros2_ws/install/setup.sh
+echo "alias bld='cd ~/ros2_ws && colcon build --symlink-install && source ~/ros2_ws/install/setup.bash'" >> ~/.bashrc
+echo "alias upros='source ~/ros2_ws/install/setup.sh'"
 echo "alias eb='nano ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 echo "alias ms='cd ~/ros2_ws/src'" >> ~/.bashrc
-echo "alias msc='code ~/ros2_ws/src'" >> ~/.bashrc
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
-echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+echo "alias msc=\'code ~/ros2_ws/src\'" >> ~/.bashrc
+echo "source ~/ros2_ws/install/setup.sh" >> ~/.bashrc
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+# echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
+
