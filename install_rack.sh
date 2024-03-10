@@ -1,7 +1,6 @@
 # install required packages
 # sudo apt install -y git
 sudo apt install screen -y
-screen -S install_rack
 sudo apt install -y ffmpeg
 sudo apt install -y net-tools
 sudo apt install python3-pip -y
