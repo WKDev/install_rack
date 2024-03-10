@@ -76,7 +76,7 @@ cd ~/ros2_ws
 colcon build --symlink-install
 source ~/ros2_ws/install/setup.bash
 
-sudo mv ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
+sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
 sudo systemctl daemon-reload
 sudo systemctl enable rack
 sudo systemctl start rack
