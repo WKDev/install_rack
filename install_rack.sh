@@ -53,18 +53,20 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 
 source /opt/ros/humble/setup.bash
-source ~/.bashrc
-mkdir -p ~/ros2_ws/src
+mkdir ~/ros2_ws
+git clone https://github.com/WKDev/bsn-middleware
+mv bsn-middleware ~/ros2_ws/src
 cd ~/ros2_ws
 colcon build --symlink-install
-source ~/ros2_ws/install/setup.sh
+source ~/ros2_ws/install/setup.bash
+
 echo "alias bld='cd ~/ros2_ws && colcon build --symlink-install && source ~/ros2_ws/install/setup.bash'" >> ~/.bashrc
-echo "alias upros='source ~/ros2_ws/install/setup.sh'"
+echo "alias upros='source ~/ros2_ws/install/setup.bash'"
 echo "alias eb='nano ~/.bashrc'" >> ~/.bashrc
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 echo "alias ms='cd ~/ros2_ws/src'" >> ~/.bashrc
 echo "alias msc=\'code ~/ros2_ws/src\'" >> ~/.bashrc
-echo "source ~/ros2_ws/install/setup.sh" >> ~/.bashrc
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 # echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
