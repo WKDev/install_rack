@@ -6,6 +6,7 @@ sudo apt install -y net-tools
 sudo apt install python3-pip -y
 pip install setuptools==58.2.0
 pip install RPi.GPIO
+yes | sudo apt install python3-colcon-common-extensions
 
 # Install mediamtx
 wget https://github.com/bluenviron/mediamtx/releases/download/v1.6.0/mediamtx_v1.6.0_linux_arm64v8.tar.gz
