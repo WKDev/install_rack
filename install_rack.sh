@@ -1,5 +1,5 @@
 # install required packages
-sudo apt install -y git
+# sudo apt install -y git
 sudo apt install screen -y
 sudo apt install python3-pip -y
 pip install setuptools==58.2.0
@@ -7,10 +7,12 @@ pip install RPi.GPIO
 
 # Install mediamtx
 wget https://github.com/bluenviron/mediamtx/releases/download/v1.6.0/mediamtx_v1.6.0_linux_arm64v8.tar.gz
-tar -xvf mediamtx_v1.6.0_linux_armv7.tar.gz
+rm -rf mediamtx.yml
+tar -xvf mediamtx_v1.6.0_linux_arm64v8.tar.gz
 sudo mv mediamtx /usr/local/bin/
-sudo mv mediamtx.yml /usr/local/etc/
-rm -rf mediamtx_v1.6.0_linux_armv7.tar.gz
+sudo mv mediamtxx.yml /usr/local/etc/mediamtx.yml
+rm -rf mediamtx_v1.6.0_linux_arm64v8.tar.gz
+
 
 sudo tee /etc/systemd/system/mediamtx.service >/dev/null << EOF
 [Unit]
