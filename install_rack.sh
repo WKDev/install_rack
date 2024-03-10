@@ -4,8 +4,8 @@ sudo apt install screen -y
 sudo apt install -y ffmpeg
 sudo apt install -y net-tools
 sudo apt install python3-pip -y
-pip install setuptools==58.2.0
-pip install RPi.GPIO
+sudo pip install setuptools==58.2.0
+sudo pip install RPi.GPIO
 sudo apt install python3-colcon-common-extensions
 
 
