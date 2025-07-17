@@ -5,22 +5,24 @@ sudo apt install -y ffmpeg
 sudo apt install -y net-tools
 sudo apt install python3-pip -y
 sudo pip install setuptools==58.2.0
+sudo pip install pyserial
+sudo pip install pymodbus
 sudo pip install RPi.GPIO
 sudo apt install python3-colcon-common-extensions -y
 
 
-echo "=================================="
+# echo "=================================="
 
-echo "installing mediamtx"
-echo "=================================="
+# echo "installing mediamtx"
+# echo "=================================="
 
 # Install mediamtx
-wget https://github.com/bluenviron/mediamtx/releases/download/v1.6.0/mediamtx_v1.6.0_linux_arm64v8.tar.gz
-rm -rf mediamtx.yml
-tar -xvf mediamtx_v1.6.0_linux_arm64v8.tar.gz
-sudo mv mediamtx /usr/local/bin/
-sudo mv mediamtxx.yml /usr/local/etc/mediamtx.yml
-rm -rf mediamtx_v1.6.0_linux_arm64v8.tar.gz
+# wget https://github.com/bluenviron/mediamtx/releases/download/v1.6.0/mediamtx_v1.6.0_linux_arm64v8.tar.gz
+# rm -rf mediamtx.yml
+# tar -xvf mediamtx_v1.6.0_linux_arm64v8.tar.gz
+# sudo mv mediamtx /usr/local/bin/
+# sudo mv mediamtxx.yml /usr/local/etc/mediamtx.yml
+# rm -rf mediamtx_v1.6.0_linux_arm64v8.tar.gz
 
 
 sudo tee /etc/systemd/system/mediamtx.service >/dev/null << EOF
