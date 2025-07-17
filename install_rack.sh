@@ -1,5 +1,8 @@
 # install required packages
 # sudo apt install -y git
+sudo systemctl disable systemd-networkd-wait-online.service
+sudo systemctl mask systemd-networkd-wait-online.service
+
 sudo apt install screen -y
 sudo apt install -y ffmpeg
 sudo apt install -y net-tools
