@@ -13,7 +13,6 @@ sudo python3 -m pip install setuptools==58.2.0
 sudo python3 -m pip install pyserial
 sudo python3 -m pip install pymodbus
 sudo python3 -m pip install RPi.GPIO
-sudo apt install python3-colcon-common-extensions -y
 
 
 # echo "=================================="
@@ -67,6 +66,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install ros-humble-ros-base -y
+# sudo apt install python3-colcon-common-extensions -y
 
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
@@ -80,7 +80,7 @@ mkdir ~/ros2_ws
 git clone https://github.com/WKDev/bsn-middleware
 mv bsn-middleware ~/ros2_ws/src
 cd ~/ros2_ws
-colcon build --symlink-install
+colcon build --symlink-insstall
 source ~/ros2_ws/install/setup.bash
 
 sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
