@@ -7,10 +7,10 @@ sudo apt install screen -y
 sudo apt install -y ffmpeg
 sudo apt install -y net-tools
 sudo apt install python3-pip -y
-sudo pip install setuptools==58.2.0
-sudo pip install pyserial
-sudo pip install pymodbus
-sudo pip install RPi.GPIO
+sudo python3 -m pip install setuptools==58.2.0
+sudo python3 -m pip install pyserial
+sudo python3 -m pip install pymodbus
+sudo python3 -m pip install RPi.GPIO
 sudo apt install python3-colcon-common-extensions -y
 
 
