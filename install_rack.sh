@@ -1,5 +1,7 @@
 # install required packages
 # sudo apt install -y git
+
+sudo apt update -y && sudo apt upgrade -y
 sudo systemctl disable systemd-networkd-wait-online.service
 sudo systemctl mask systemd-networkd-wait-online.service
 
