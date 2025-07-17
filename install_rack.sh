@@ -80,7 +80,7 @@ mkdir ~/ros2_ws
 git clone https://github.com/WKDev/bsn-middleware
 mv bsn-middleware ~/ros2_ws/src
 cd ~/ros2_ws
-colcon build --symlink-insstall
+colcon build --symlink-install
 source ~/ros2_ws/install/setup.bash
 
 sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
