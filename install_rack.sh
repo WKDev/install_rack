@@ -1,9 +1,10 @@
 # install required packages
 # sudo apt install -y git
 
-sudo apt update -y && sudo apt upgrade -y
-sudo systemctl disable systemd-networkd-wait-online.service
-sudo systemctl mask systemd-networkd-wait-online.service
+# sudo apt update -y && sudo apt upgrade -y
+# sudo systemctl disable systemd-networkd-wait-online.service
+# sudo systemctl mask systemd-networkd-wait-online.service
+# sudo reboot -h now
 
 sudo apt install screen -y
 sudo apt install -y ffmpeg
@@ -29,18 +30,18 @@ sudo python3 -m pip install RPi.GPIO
 # rm -rf mediamtx_v1.6.0_linux_arm64v8.tar.gz
 
 
-sudo tee /etc/systemd/system/mediamtx.service >/dev/null << EOF
-[Unit]
-Wants=network.target
-[Service]
-ExecStart=/usr/local/bin/mediamtx /usr/local/etc/mediamtx.yml
-[Install]
-WantedBy=multi-user.target
-EOF
+# sudo tee /etc/systemd/system/mediamtx.service >/dev/null << EOF
+# [Unit]
+# Wants=network.target
+# [Service]
+# ExecStart=/usr/local/bin/mediamtx /usr/local/etc/mediamtx.yml
+# [Install]
+# WantedBy=multi-user.target
+# EOF
 
-sudo systemctl daemon-reload
-sudo systemctl enable mediamtx
-sudo systemctl start mediamtx
+# sudo systemctl daemon-reload
+# sudo systemctl enable mediamtx
+# sudo systemctl start mediamtx
 
 echo "=================================="
 
@@ -78,16 +79,17 @@ echo "=================================="
 source /opt/ros/humble/setup.bash
 mkdir ~/ros2_ws
 git clone https://github.com/WKDev/bsn-middleware
-mv bsn-middleware ~/ros2_ws/src
-cd ~/ros2_ws
-colcon build --symlink-install
-source ~/ros2_ws/install/setup.bash
+cd bsn-middleware
 
-sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
-sudo systemctl daemon-reload
-sudo systemctl enable rack
-sudo systemctl start rack
+# mv bsn-middleware ~/ros2_ws/src
+# cd ~/ros2_ws
+# colcon build --symlink-install
+# source ~/ros2_ws/install/setup.bash
 
+# sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
+# sudo systemctl daemon-reload
+# sudo systemctl enable rack
+# sudo systemctl start rack
 
 
 echo "alias bld='cd ~/ros2_ws && colcon build --symlink-install && source ~/ros2_ws/install/setup.bash'" >> ~/.bashrc
@@ -102,6 +104,6 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
 
 
-sudo systemctl status rack
+# sudo systemctl status rack
 
 echo "Installation complete. Please reboot the system."
