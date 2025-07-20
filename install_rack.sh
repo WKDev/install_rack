@@ -57,7 +57,6 @@ export LANG=en_US.UTF-8
 
 locale  # verify settings
 
-sudo apt install software-properties-common -y
 sudo add-apt-repository universe -y
 sudo apt update -y
 sudo apt-get purge needrestart -y
@@ -81,15 +80,21 @@ mkdir ~/ros2_ws
 git clone https://github.com/WKDev/bsn-middleware
 cd bsn-middleware
 
-# mv bsn-middleware ~/ros2_ws/src
-# cd ~/ros2_ws
-# colcon build --symlink-install
-# source ~/ros2_ws/install/setup.bash
+mv bsn-middleware ~/ros2_ws/src
+cd ~/ros2_ws
+colcon build --symlink-install
+source ~/ros2_ws/install/setup.bash
 
-# sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
+sudo cp ~/ros2_ws/src/rack.service /etc/systemd/system/rack.service
+sudo systemctl daemon-reload
+sudo systemctl enable rack
+sudo systemctl start rack
+
+# sudo cp ~/ros2_ws/src/cobot.service /etc/systemd/system/cobot.service
 # sudo systemctl daemon-reload
-# sudo systemctl enable rack
-# sudo systemctl start rack
+# sudo systemctl enable cobot
+# sudo systemctl start cobot
+
 
 
 echo "alias bld='cd ~/ros2_ws && colcon build --symlink-install && source ~/ros2_ws/install/setup.bash'" >> ~/.bashrc
